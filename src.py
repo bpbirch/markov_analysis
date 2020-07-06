@@ -191,7 +191,6 @@ def predict_sentence(cleansed_words, prefix, n):
     multiDict = make_markov_dict(cleansed_words, len(prefix.split()))
     prefix = prefix.lower()
     # we convert to lower because our cleanse function automatically converts to lower
-    # so if we don't convert
     sentence = prefix #initialize our sentence to just be our prefix
     
     for _ in range(n-1):
@@ -218,6 +217,7 @@ if __name__ == '__main__':
 
     cleansedWords = [cleanse(word) for word in words]
 
-    print(predict_sentence(cleansedWords, 'he said', 10))
+    print(predict_sentence(cleansedWords, 'he said', 10)) 
+    # this will predict an 11-word sentence (first input word, plus 10 suffixes)
     
 
