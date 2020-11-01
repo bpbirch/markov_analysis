@@ -26,7 +26,13 @@ def cleanse(word):
             cleaned += char.lower()
     return cleaned
 
-    
+#%%
+def gatherBook(url):
+    with urllib.request.urlopen(book) as file_object:
+        # *** demarcates actual text of book in gutenberg files
+        words = file_object.read().decode('utf-8-sig').split('***')[2]
+        words = words.split()
+    return words
 
 #%%
 if __name__ == '__main__':
@@ -60,11 +66,8 @@ def make_word_dict(word_list):
 
 #%%
 if __name__ == '__main__':
-    book = 'http://www.gutenberg.org/cache/epub/61995/pg61995.txt'
-    with urllib.request.urlopen(book) as file_object:
-        words = file_object.read().decode('utf-8-sig').split()
-        words = words[words.index('Title:'):]
-    
+    url = 'http://www.gutenberg.org/cache/epub/61995/pg61995.txt'
+    words = gatherBook(url)
     bookDict = make_word_dict(words)
     print(bookDict)
 
@@ -115,10 +118,8 @@ def make_markov_dict(cleansedWords, n):
 
 #%%
 if __name__ == '__main__':
-    book = 'http://www.gutenberg.org/cache/epub/61995/pg61995.txt'
-    with urllib.request.urlopen(book) as file_object:
-        words = file_object.read().decode('utf-8-sig').split()
-        words = words[words.index('Title:'):]
+    url = 'http://www.gutenberg.org/cache/epub/61995/pg61995.txt'
+    words = gatherBook(url)
     
     markovDict = make_markov_dict(words, 2)
     ml = list(enumerate(markovDict.items()))
@@ -158,10 +159,8 @@ def generate_suffixes(markovDict, prefix):
 
 #%%
 if __name__ == '__main__':
-    book = 'http://www.gutenberg.org/cache/epub/61995/pg61995.txt'
-    with urllib.request.urlopen(book) as file_object:
-        words = file_object.read().decode('utf-8-sig').split()
-        words = words[words.index('Title:'):]
+    url = 'http://www.gutenberg.org/cache/epub/61995/pg61995.txt'
+    words = gatherBook(url)
     
     markovDict = make_markov_dict(words, 2)
     
@@ -210,10 +209,8 @@ def predict_sentence(cleansed_words, prefix, n):
 
 #%%
 if __name__ == '__main__':
-    book = 'http://www.gutenberg.org/cache/epub/61995/pg61995.txt'
-    with urllib.request.urlopen(book) as file_object:
-        words = file_object.read().decode('utf-8-sig').split()
-        words = words[words.index('Title:'):]
+    url = 'http://www.gutenberg.org/cache/epub/61995/pg61995.txt'
+    words = gatherBook(url)
 
     cleansedWords = [cleanse(word) for word in words]
 
