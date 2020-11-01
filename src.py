@@ -28,7 +28,7 @@ def cleanse(word):
 
 #%%
 def gatherBook(url):
-    with urllib.request.urlopen(book) as file_object:
+    with urllib.request.urlopen(url) as file_object:
         # *** demarcates actual text of book in gutenberg files
         words = file_object.read().decode('utf-8-sig').split('***')[2]
         words = words.split()
