@@ -34,6 +34,7 @@ def gatherBook(url):
         words = words.split()
     return words
 
+
 #%%
 if __name__ == '__main__':
     word = 'hey there,. '
