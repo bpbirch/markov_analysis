@@ -209,8 +209,9 @@ def predict_sentence(cleansed_words, prefix, n):
     return sentence
 
 #%%
+
 if __name__ == '__main__':
-    url = 'http://www.gutenberg.org/cache/epub/61995/pg61995.txt'
+    url = 'http://www.gutenberg.org/cache/epub/63632/pg63632.txt'
     words = gatherBook(url)
 
     cleansedWords = [cleanse(word) for word in words]
