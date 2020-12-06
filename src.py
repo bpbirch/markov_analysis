@@ -209,7 +209,6 @@ def predict_sentence(cleansed_words, prefix, n):
     return sentence
 
 #%%
-
 if __name__ == '__main__':
     url = 'http://www.gutenberg.org/cache/epub/63632/pg63632.txt'
     words = gatherBook(url)
@@ -218,5 +217,6 @@ if __name__ == '__main__':
 
     print(predict_sentence(cleansedWords, 'he said', 10)) 
     # this will predict an 11-word sentence (first input word, plus 10 suffixes)
+    
     
 
