@@ -3,7 +3,7 @@ This project implements Markov analysis for text prediction from a given text fi
 The program works by first gathering a text file of a book from project gutenberg. Words are then stripped of punctuation. 
 A dictionary is then created for that book, with each unique word being a key, and the words that follow it composing a list as that key's value.
 So if the word 'he' is followed in the book at different times by 'went', 'said', 'will', 'needs', 'went', 'said', 'said', and 'can', then 
-the entry in our dictionary would be wordDic['went'] = ['went', 'said', 'will', 'needs', 'went', 'said', 'said', 'can']. 
+the entry in our dictionary would be wordDic['he'] = ['went', 'said', 'will', 'needs', 'went', 'said', 'said', 'can']. 
 Note that this means that we are essentially using a graph structure here,
 with individual words being vertices, and edges being drawn to words
 that follow each individual word in our text.
